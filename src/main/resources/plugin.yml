@@ -1,0 +1,5 @@
+name: "Example_Plugin"
+version: "1.0"
+main: "CHANGEME.MyJavaPlugin"
+author: irdkwmnsb
+load: POSTWORLD
