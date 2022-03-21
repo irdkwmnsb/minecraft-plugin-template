@@ -3,7 +3,7 @@ name: Make release
 on:
   workflow_dispatch:
     inputs:
-      tagname:
+      tag_name:
         required: true
         description: "Tag name"
 
@@ -45,7 +45,7 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-          automatic_release_tag: "${INPUT_TAGNAME}"
+          automatic_release_tag: "${{ inputs.tag_name }}"
           draft: true
           files: |
             artifact/*.jar
