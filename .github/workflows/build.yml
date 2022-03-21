@@ -1,4 +1,4 @@
-name: Handle Release
+name: Build artifacts
 
 on:
   push:
@@ -23,6 +23,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
         with:
-          name: ${GITHUB_SHA}
+          name: "$GITHUB_SHA"
           path: target
 
