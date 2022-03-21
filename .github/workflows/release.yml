@@ -46,7 +46,7 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-          automatic_release_tag: "${{ inputs.tagname }}"
+          automatic_release_tag: "${{ github.event.inputs.tagname }}"
           draft: true
           files: |
             artifact/*.jar
