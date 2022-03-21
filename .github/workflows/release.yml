@@ -14,11 +14,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: "Download artifacts"
-        uses: actions/download-artifact@v3
+      - name: Download artifacts
+        uses: dawidd6/action-download-artifact@v2
         with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          workflow: build.yml
+          # Optional, the status or conclusion of a completed workflow to search for
+          # Can be one of a workflow conclusion:
+          #   "failure", "success", "neutral", "cancelled", "skipped", "timed_out", "action_required"
+          # Or a workflow status:
+          #   "completed", "in_progress", "queued"
+          workflow_conclusion: success
+          # Optional, uploaded artifact name,
+          # will download all artifacts if not specified
+          # and extract them in respective subdirectories
+          # https://github.com/actions/download-artifact#download-all-artifacts
           name: "${{ github.sha }}"
+          # Optional, directory where to extract artifact(s), defaults to current directory
           path: artifact
+          # Optional, check the workflow run whether it has an artifact
+          # then will get the last available artifact from previous workflow
+          # default false, just try to download from the last one
+          check_artifacts: false
+          # Optional, search for the last workflow run whose stored an artifact named as in `name` input
+          # default false
+          search_artifacts: true
 
       - name: "Publish artifacts"
         uses: "marvinpinto/action-automatic-releases@latest"
