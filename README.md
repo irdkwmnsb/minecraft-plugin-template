@@ -1,3 +1,4 @@
+[![Build artifacts](https://github.com/irdkwmnsb/minecraft-plugin-template/actions/workflows/build.yml/badge.svg)](https://github.com/irdkwmnsb/minecraft-plugin-template/actions/workflows/build.yml)
 # This is an example plugin for spigot 
 ## Make it your own:
 1) Change lines 7 and 8 in pom.xml
